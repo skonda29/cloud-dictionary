@@ -1,0 +1,35 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-clouddic-dev-d6fe2-authRole",
+      "UnauthRoleArn": "arn:aws:iam::140023385443:role/amplify-clouddic-dev-d6fe2-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::140023385443:role/amplify-clouddic-dev-d6fe2-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-clouddic-dev-d6fe2-deployment",
+      "UnauthRoleName": "amplify-clouddic-dev-d6fe2-unauthRole",
+      "StackName": "amplify-clouddic-dev-d6fe2",
+      "StackId": "arn:aws:cloudformation:us-east-2:140023385443:stack/amplify-clouddic-dev-d6fe2/d5036790-3391-11f0-9756-0a3d075a90f1",
+      "AmplifyAppId": "d4zhh6t9lhrmu"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d4zhh6t9lhrmu",
+          "type": "manual"
+        }
+      },
+      "function": {
+        "lookupTermFunction": {
+          "deploymentBucketName": "amplify-clouddic-dev-d6fe2-deployment",
+          "s3Key": "amplify-builds/lookupTermFunction-39332f4b3971646c645a-build.zip"
+        }
+      },
+      "api": {
+        "DictionaryAPI": {}
+      },
+      "storage": {
+        "DictionaryTable": {}
+      }
+    }
+  }
+}

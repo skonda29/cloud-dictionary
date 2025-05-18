@@ -1,0 +1,10 @@
+{
+  "resourceName": "DictionaryTable",
+  "tableName": "DictionaryTable",
+  "partitionKey": {
+    "fieldName": "term",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

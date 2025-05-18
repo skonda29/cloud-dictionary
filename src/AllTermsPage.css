@@ -1,0 +1,83 @@
+.all-terms-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .all-terms-page h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .terms-table {
+    width: 150%;
+    align-items: left;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    table-layout: auto; 
+  }
+  
+  .terms-table th,
+  .terms-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: top; 
+  }
+  
+  .terms-table th:nth-child(1),
+  .terms-table td:nth-child(1) {
+    width: auto;
+    min-width: 100px; 
+    max-width: 400px; 
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+  
+  .terms-table th:nth-child(2),
+  .terms-table td:nth-child(2) {
+    width: auto;
+    min-width: 400px; 
+    white-space: normal; 
+    word-wrap: break-word;
+  }
+  
+  .terms-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .terms-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .terms-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  .loading-spinner {
+    margin: 20px 0;
+    font-style: italic;
+    color: #666;
+    text-align: center;
+  }
+  
+  .error-container {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #ffe6e6;
+    border: 1px solid #ff3333;
+    border-radius: 5px;
+  }
+  
+  .error-container h3 {
+    color: #ff3333;
+    margin-bottom: 10px;
+  }
+  
+  .error-text {
+    color: #333;
+  }

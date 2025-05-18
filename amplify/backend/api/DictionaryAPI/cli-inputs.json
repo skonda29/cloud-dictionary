@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/terms/{term}": {
+      "name": "/terms/{term}",
+      "lambdaFunction": "lookupTermFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/terms": {
+      "name": "/terms",
+      "lambdaFunction": "lookupTermFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
