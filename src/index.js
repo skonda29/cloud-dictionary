@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Profiler } from 'react';
 import { Amplify } from 'aws-amplify';
 import awsExports from './aws-exports';
 import App from './App';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
+import ErrorBoundary from './ErrorBoundary';
 
 try {
   Amplify.configure(awsExports);
@@ -13,13 +14,32 @@ try {
   console.error('Error configuring Amplify:', error);
 }
 
+function onRenderCallback(
+  id,
+  phase,
+  actualDuration,
+  baseDuration,
+  startTime,
+  commitTime
+) {
+  console.log(`Component ${id} metrics:`, {
+    phase,
+    actualDuration,
+    baseDuration,
+    startTime,
+    commitTime
+  });
+}
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Profiler id="App" onRender={onRenderCallback}>
+          <App />
+        </Profiler>
+      </BrowserRouter>
+    </ErrorBoundary>
   </React.StrictMode>
 );

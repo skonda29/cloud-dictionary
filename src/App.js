@@ -56,6 +56,13 @@ function App() {
           body: { term, definition },
         },
       }).response;
+      
+      if (response.status === 409) {
+        const data = await response.body.json();
+        setError(`${data.message}. Please use a different term.`);
+        return;
+      }
+      
       const data = await response.body.json();
       setResult(data);
       setTerm('');
@@ -72,60 +79,65 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <h1 className="title">Cloud Dictionary</h1>
-              <div className="input-container">
-                <input
-                  type="text"
-                  placeholder="Enter term"
-                  value={term}
-                  onChange={(e) => setTerm(e.target.value)}
-                  className="input-field"
-                  disabled={loading}
-                />
-                <input
-                  type="text"
-                  placeholder="Enter definition (for adding)"
-                  value={definition}
-                  onChange={(e) => setDefinition(e.target.value)}
-                  className="input-field"
-                  disabled={loading}
-                />
-                <div className="button-container">
-                  <button onClick={searchTerm} className="action-button" disabled={loading}>
-                    {loading ? 'Searching...' : 'Search Term'}
-                  </button>
-                  <button onClick={addTerm} className="action-button" disabled={loading}>
-                    {loading ? 'Adding...' : 'Add Term'}
-                  </button>
-                  <button onClick={handleAllTermsClick} className="action-button" disabled={loading}>
-                    All Terms
-                  </button>
+    <>
+      <div className="orb orb-1"></div>
+      <div className="orb orb-2"></div>
+      <div className="orb orb-3"></div>
+      <div className="App">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <h1 className="title">Cloud Dictionary</h1>
+                <div className="input-container">
+                  <input
+                    type="text"
+                    placeholder="Enter term"
+                    value={term}
+                    onChange={(e) => setTerm(e.target.value)}
+                    className="input-field"
+                    disabled={loading}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Enter definition (for adding)"
+                    value={definition}
+                    onChange={(e) => setDefinition(e.target.value)}
+                    className="input-field"
+                    disabled={loading}
+                  />
+                  <div className="button-container">
+                    <button onClick={searchTerm} className="action-button" disabled={loading}>
+                      {loading ? 'Searching...' : 'Search Term'}
+                    </button>
+                    <button onClick={addTerm} className="action-button" disabled={loading}>
+                      {loading ? 'Adding...' : 'Add Term'}
+                    </button>
+                    <button onClick={handleAllTermsClick} className="action-button" disabled={loading}>
+                      All Terms
+                    </button>
+                  </div>
                 </div>
-              </div>
-              {result && (
-                <div className="result-container">
-                  <h3>Result:</h3>
-                  <pre className="result-text">{JSON.stringify(result, null, 2)}</pre>
-                </div>
-              )}
-              {error && (
-                <div className="error-container">
-                  <h3>Error:</h3>
-                  <p className="error-text">{error}</p>
-                </div>
-              )}
-            </>
-          }
-        />
-        <Route path="/all-terms" element={<AllTermsPage />} />
-      </Routes>
-    </div>
+                {result && (
+                  <div className="result-container">
+                    <h3>Result:</h3>
+                    <pre className="result-text">{JSON.stringify(result, null, 2)}</pre>
+                  </div>
+                )}
+                {error && (
+                  <div className="error-container">
+                    <h3>Error:</h3>
+                    <p className="error-text">{error}</p>
+                  </div>
+                )}
+              </>
+            }
+          />
+          <Route path="/all-terms" element={<AllTermsPage />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
